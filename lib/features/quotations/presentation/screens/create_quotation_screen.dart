@@ -36,7 +36,7 @@ class CreateQuotationScreen extends ConsumerWidget {
           showBackButton: true,
           onBack: () async {
             ref.read(createQuotationNotifier.notifier).cleanState();
-            await ref.read(quotationsNotifer.notifier).fetchQuotations();
+            await ref.read(quotationsNotifer.notifier).getQuotations();
 
             context.pop();
           },
@@ -59,6 +59,7 @@ class CreateQuotationScreen extends ConsumerWidget {
                   ),
                   const CustomSizedBox(height: 16),
                   AppTextField(
+                    required: true,
                     label: 'Company Name',
                     textController:
                         ref.watch(createQuotationNotifier).companyName,
@@ -68,6 +69,7 @@ class CreateQuotationScreen extends ConsumerWidget {
                   ),
                   const CustomSizedBox(height: 16),
                   AppTextField(
+                    required: true,
                     label: 'Company address',
                     textController:
                         ref.watch(createQuotationNotifier).companyAddress,
@@ -77,6 +79,7 @@ class CreateQuotationScreen extends ConsumerWidget {
                   ),
                   const CustomSizedBox(height: 16),
                   AppTextField(
+                    required: true,
                     label: 'Email address',
                     textController: ref.watch(createQuotationNotifier).email,
                     onChanged: (_) => ref
@@ -85,6 +88,7 @@ class CreateQuotationScreen extends ConsumerWidget {
                   ),
                   const CustomSizedBox(height: 16),
                   AppTextField(
+                    required: true,
                     label: 'VAT number',
                     textController: ref.watch(createQuotationNotifier).vatNr,
                     onChanged: (_) => ref
@@ -93,6 +97,7 @@ class CreateQuotationScreen extends ConsumerWidget {
                   ),
                   const CustomSizedBox(height: 16),
                   AppTextField(
+                    required: true,
                     label: 'Quotation Title',
                     textController: ref.watch(createQuotationNotifier).title,
                     onChanged: (_) => ref

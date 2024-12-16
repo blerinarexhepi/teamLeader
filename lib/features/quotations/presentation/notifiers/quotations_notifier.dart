@@ -9,14 +9,14 @@ class QuotationsNotifier extends Notifier<QuotationsState> {
   @override
   QuotationsState build() {
     state = QuotationsState.initial();
-    fetchQuotations();
+    getQuotations();
 
     return state;
   }
 
   final DatabaseService _databaseService = DatabaseService.instance;
 
-  Future<void> fetchQuotations() async {
+  Future<void> getQuotations() async {
     final result = await _databaseService.getQuotations();
 
     if (result != null) {

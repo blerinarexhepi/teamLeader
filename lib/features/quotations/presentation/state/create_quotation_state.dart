@@ -13,15 +13,15 @@ class CreateQuotationState {
     this.companyAddress,
     this.isEnabled = false,
     this.images = const [],
-    this.lineItems = const [],
     this.isSucsess = false,
+    this.lineItems = const [],
     this.showSnackBar = false,
     this.snackBarMessage = '',
   });
 
   CreateQuotationState.initial()
-      : lineItems = [],
-        images = [],
+      : images = [],
+        lineItems = [],
         isEnabled = false,
         isSucsess = false,
         showSnackBar = false,
@@ -34,10 +34,10 @@ class CreateQuotationState {
         companyAddress = TextEditingController();
 
   final bool isEnabled;
-  final bool showSnackBar;
   final bool isSucsess;
-  final String snackBarMessage;
+  final bool showSnackBar;
   final List<String> images;
+  final String snackBarMessage;
   List<LineItemData> lineItems;
   final TextEditingController? email;
   final TextEditingController? title;
@@ -48,34 +48,34 @@ class CreateQuotationState {
 
   CreateQuotationState copyWith({
     bool? isEnabled,
-    int? lineItemCount,
-    bool? showSnackBar,
     bool? isSucsess,
-    String? snackBarMessage,
+    String? imagePath,
+    bool? showSnackBar,
+    int? lineItemCount,
     List<String>? images,
+    List<Uint8List>? imgs,
+    String? snackBarMessage,
     TextEditingController? email,
     TextEditingController? title,
     TextEditingController? vatNr,
+    List<LineItemData>? lineItems,
     TextEditingController? totalPrice,
     TextEditingController? companyName,
     TextEditingController? companyAddress,
-    List<LineItemData>? lineItems,
-    List<Uint8List>? imgs,
-    String? imagePath,
   }) {
     return CreateQuotationState(
-      showSnackBar: showSnackBar ?? this.showSnackBar,
-      isSucsess: isSucsess ?? this.isSucsess,
-      snackBarMessage: snackBarMessage ?? this.snackBarMessage,
       email: email ?? this.email,
       title: title ?? this.title,
       vatNr: vatNr ?? this.vatNr,
       images: images ?? this.images,
+      isSucsess: isSucsess ?? this.isSucsess,
       isEnabled: isEnabled ?? this.isEnabled,
       lineItems: lineItems ?? this.lineItems,
       totalPrice: totalPrice ?? this.totalPrice,
       companyName: companyName ?? this.companyName,
+      showSnackBar: showSnackBar ?? this.showSnackBar,
       companyAddress: companyAddress ?? this.companyAddress,
+      snackBarMessage: snackBarMessage ?? this.snackBarMessage,
     );
   }
 }

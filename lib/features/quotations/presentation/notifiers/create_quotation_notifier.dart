@@ -1,10 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:teamleader/core/core.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:teamleader/features/quotations/quotations.dart';
 
 final createQuotationNotifier =
@@ -19,9 +18,8 @@ class CreateQuotationNotifier extends Notifier<CreateQuotationState> {
     return state;
   }
 
-  ImagePickerService get _imagePickerService => ref.read(imagePickerService);
-  final ImagePicker picker = ImagePicker();
   final DatabaseService _databaseService = DatabaseService.instance;
+  ImagePickerService get _imagePickerService => ref.read(imagePickerService);
 
   void addLineItem() {
     final updatedLineItems = [...state.lineItems, LineItemData()];
